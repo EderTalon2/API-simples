@@ -1,2 +1,14 @@
-# API-simples
-API simples desenvolvida em Python utilizando o framework Flask. O objetivo do projeto é demonstrar conceitos básicos de desenvolvimento backend, como criação de rotas, manipulação de requisições HTTP e retorno de dados no formato JSON.
+from flask import Flask, jsonify
+
+app = Flask(__name__)
+
+@app.route('/')
+def home():
+    return jsonify({"mensagem": "API funcionando!"})
+
+@app.route('/usuario/<nome>')
+def usuario(nome):
+    return jsonify({"usuario": nome})
+
+if __name__ == '__main__':
+    app.run(debug=True)
